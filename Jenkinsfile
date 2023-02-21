@@ -3,13 +3,13 @@ pipeline{
   stages{
     stage('Build'){
       steps{
-        sh 'mvn clean install'
+        sh 'npm run build'
         echo 'Build Stage Successful'
       }
     }
     stage('Test'){
       steps{
-        sh 'mvn test'
+        sh 'npm test'
         echo 'Test Stage Successful'
         post {
           always{
@@ -20,7 +20,7 @@ pipeline{
     }
     stage('Deploy'){
       steps{
-        sh 'mvn deploy'
+        sh 'npm deploy'
         echo 'Deployment Successful'
       }
     }
